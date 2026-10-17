@@ -1,0 +1,11 @@
+# Digital Signal Processing Laboratory
+
+This repository contains MATLAB implementations for the Digital Signal Processing Laboratory course.
+
+## Overview of Scripts
+
+* **`DSP1.m` — Spectral & Time-Frequency Analysis:** Analyzes audio and music signals in the time and frequency domains using FFT. Evaluates Short-Time Fourier Transform (STFT) spectrograms across different window functions (Hamming, Hann, Rectangular) and window lengths (256 vs. 512) to demonstrate time-frequency resolution trade-offs and spectral leakage.
+* **`DSP2.m` — Wideband FM Receiver (Stereo & RDS Demodulation):** Processes raw baseband I/Q signals to implement a frame-based FM demodulator. Extracts mono audio ($L+R$), recovers the 19 kHz pilot tone to coherently demodulate the 38 kHz stereo difference channel ($L-R$) into Left/Right stereo audio, and demodulates the 57 kHz RDS BPSK subcarrier using Differential Manchester decoding.
+* **`DSP3.m` — Real-Time Block Filtering via Overlap-Save (OLS):** Implements a custom FFT-based Overlap-Save (`ols`) block convolution function to eliminate boundary artifacts during frame-by-frame processing. Applies multi-stage FIR filtering, phase-continuous FM demodulation, and multirate decimation to reconstruct clean baseband audio.
+* **`DSP4.m` — DTMF Tone Generation & Detection in AWGN:** Synthesizes Dual-Tone Multi-Frequency (DTMF) keypad signals and implements a frame-based, phase-invariant Goertzel/matched-filter correlator detector. Performs Monte Carlo simulations across varying SNR levels (0 to 20 dB) in AWGN channels to optimize detection thresholds and plot Probability of Detection ($P_d$) curves.
+* **`DSP5.m` — Real-Time Audio Stream Processing & Effects:** Utilizes low-latency frame-by-frame audio I/O streaming (`audioDeviceReader` / `audioDeviceWriter`) to implement real-time audio loopback, circular-buffer delay/echo effects with configurable feedback parameters, linear amplitude fading, phase-locked pitch shifting, and a live FFT spectrum analyzer.
